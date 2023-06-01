@@ -1,0 +1,38 @@
+html,body {
+  font-family: 'robot mono';
+  font-size: 16px;
+  background-color: white;
+}
+
+h1 {
+    color: black;
+text-align:center;
+font-size: 2rem;
+margin: 3rem;
+}
+
+#container {
+    background-color:white;
+    width: 540px;
+    border-radius: 1rem;
+    margin: 0 auto ;
+    padding: 0.1rem;
+}
+
+#time {
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: .5rem;
+}
+
+#buttons {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#start,#stop,#reset {
+    font-size: 1.5rem;
+}
