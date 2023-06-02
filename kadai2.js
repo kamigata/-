@@ -12,7 +12,7 @@ function displayTime() {
   const h = String(currentTime.getHours() - 9).padStart(1, "0");
   const m = String(currentTime.getMinutes()).padStart(1, "0");
   const s = String(currentTime.getSeconds()).padStart(1, "0");
-  const ms = String(currentTime.getMilliseconds()).padStart(1, "0").slice(0, 1); // msを1桁にする
+  const ms = String(currentTime.getMilliseconds()).padStart(1, "0").slice(0, 1);
 
   time.textContent = `${h}:${m}:${s}:${ms}`;
   timeoutID = setTimeout(displayTime, 4);
