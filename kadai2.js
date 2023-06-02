@@ -9,13 +9,13 @@ let timeoutID;
 
 function displayTime() {
   const currentTime = new Date(Date.now() - startTime + stopTime);
-  const h = String(currentTime.getHours()-1).padStart(2, "0");
-  const m = String(currentTime.getMinutes()).padStart(2, "0");
-  const s = String(currentTime.getSeconds()).padStart(2, "0");
-  const ms = String(currentTime.getMilliseconds()).padStart(3, "0");
+  const h = String(currentTime.getHours() - 9).padStart(1, "0");
+  const m = String(currentTime.getMinutes()).padStart(1, "0");
+  const s = String(currentTime.getSeconds()).padStart(1, "0");
+  const ms = String(currentTime.getMilliseconds()).padStart(1, "0").slice(0, 1); // msを1桁にする
 
-  time.textContent = `${m}:${s}.${ms}`;
-  timeoutID = setTimeout(displayTime, 8);
+  time.textContent = `${h}:${m}:${s}:${ms}`;
+  timeoutID = setTimeout(displayTime, 4);
 }
 
 startButton.addEventListener("click", () => {
@@ -26,18 +26,18 @@ startButton.addEventListener("click", () => {
   displayTime();
 });
 
-stopButton.addEventListener("click", function() {
+stopButton.addEventListener("click", function () {
   startButton.disabled = false;
   stopButton.disabled = true;
   resetButton.disabled = false;
   clearTimeout(timeoutID);
-  stopTime += (Date.now() - startTime);
+  stopTime += Date.now() - startTime;
 });
 
-resetButton.addEventListener("click", function() {
+resetButton.addEventListener("click", function () {
   startButton.disabled = false;
   stopButton.disabled = true;
   resetButton.disabled = true;
-  time.textContent = "00:00.000";
+  time.textContent = "0:0:0:0";
   stopTime = 0;
 });
